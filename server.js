@@ -17,4 +17,8 @@ app.get('/details',function(req,res) {
   res.send("details page.");
 });
 
+app.get('/contact',function(req,res) {
+  res.send("contact page.");
+});
+
 app.listen(4000);
