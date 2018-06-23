@@ -1,5 +1,4 @@
--#!/bin/sh 
- ssh azzab@52.226.70.235 <<EOF             
+#!/bin/bash              
  cd /home/azzab/Jenkins-nodejs  
  git pull       
  npm install --production       
