@@ -21,4 +21,8 @@ app.get('/contact',function(req,res) {
   res.send("contact page.");
 });
 
+app.get('/posts',function(req,res) {
+  res.send("posts page.");
+});
+
 app.listen(4000);
