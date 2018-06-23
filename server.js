@@ -13,4 +13,8 @@ app.get('/about',function(req,res) {
   res.send("How to automate building and deployment node js apps using jenkins.");
 });
 
+app.get('/details',function(req,res) {
+  res.send("details page.");
+});
+
 app.listen(4000);
