@@ -1,0 +1,7 @@
+-#!/bin/sh              
+ cd /home/azzab/Jenkins-nodejs  
+ git pull       
+ npm install --production       
+ forever restart server.js
+ exit       
+EOF
