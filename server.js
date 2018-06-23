@@ -25,4 +25,8 @@ app.get('/posts',function(req,res) {
   res.send("posts page.");
 });
 
+app.get('/users',function(req,res) {
+  res.send("users page.");
+});
+
 app.listen(4000);
