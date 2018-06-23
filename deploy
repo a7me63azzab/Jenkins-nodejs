@@ -2,6 +2,6 @@
  cd /home/azzab/Jenkins-nodejs  
  git pull       
  npm install --production       
- forever restart server.js
+ forever start server.js
  exit       
 EOF
