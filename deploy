@@ -1,5 +1,5 @@
 #!/bin/bash
- ssh azzab@52.226.70.235 <<EOF              
+ ssh azzab@52.226.70.235 -o StrictHostKeyChecking=no <<EOF              
  cd /home/azzab/Jenkins-nodejs  
  git pull       
  npm install --production       
