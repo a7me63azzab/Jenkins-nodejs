@@ -33,4 +33,8 @@ app.get('/addpost',function(req,res) {
   res.send("add post page.");
 });
 
+app.get('/addpost',function(req,res) {
+  res.send("add post page.");
+});
+
 app.listen(4000);
