@@ -29,4 +29,8 @@ app.get('/users',function(req,res) {
   res.send("users page.");
 });
 
+app.get('/addpost',function(req,res) {
+  res.send("add post page.");
+});
+
 app.listen(4000);
