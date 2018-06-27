@@ -4,6 +4,8 @@ echo 'Testing apis with newman and jenkins .... '
 
 EnvironmentFile="Demo-OpenWeatherMap.postman_environment.json"
 
+export PATH="/usr/bin/newman:$PATH"
+
 cd postman-tests/
 
 pwd  
