@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "195b8c18-fbbf-4c12-9032-837cc2ac28c1",
+		"name": "test-newman-jenkins",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.openweathermap.org/data/2.5/forecast?q=cairo&APPID=518302bf2179ae5efd6aff327c7cd3da",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "056bd55d-5958-438d-96fa-2bde5e3014b1",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"//Saving the response \"name\" value into an environment variable",
+							"pm.environment.set(\"CITYNAME\", jsonData.city.name);",
+							"//postman.setEnvironmentVariable(\"CITYNAME\", jsonData.name);",
+							"//var x = pm.environment.get(\"CITYNAME\");",
+							"//console.log('--->',x);",
+							"",
+							"var cityFromResponse = postman.getEnvironmentVariable(\"CITYNAME\");",
+							"console.log(cityFromResponse);",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// make sure that the city you in your request is the same city returned in response",
+							"var query = {};",
+							"pm.request.url.query.all().forEach((param) => { query[param.key] = param.value});",
+							"console.log(query)",
+							"",
+							"",
+							"pm.test(\"Check if request city name is the same in response\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.city.name).to.eql(query.q);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Body matches string : weather\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"weather\");",
+							"});",
+							"",
+							"pm.test(\"DOES NOT Contain string: 'snow' \", function () {",
+							"    pm.expect(pm.response.text()).to.not.include('snow');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}?q=Cairo&APPID=518302bf2179ae5efd6aff327c7cd3da",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Cairo"
+						},
+						{
+							"key": "APPID",
+							"value": "518302bf2179ae5efd6aff327c7cd3da"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
